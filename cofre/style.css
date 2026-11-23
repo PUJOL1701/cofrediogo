@@ -1,0 +1,331 @@
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #242424, #080808 65%);
+    color: #f5f5f5;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+    width: 100%;
+    max-width: 650px;
+    padding: 35px;
+
+    background: linear-gradient(145deg, #191919, #0c0c0c);
+
+    border: 1px solid #4b3a1d;
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 35px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(190, 145, 55, 0.08);
+
+    text-align: center;
+}
+
+/* CABEÇALHO */
+.etiqueta {
+    color: #b99a5b;
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: 38px;
+    letter-spacing: 4px;
+    color: #eeeeee;
+}
+
+h1 span {
+    color: #c9a65c;
+}
+
+.subtitulo {
+    color: #999;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+/* IMAGEM DO COFRE */
+.cofre {
+    margin: 25px auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.cofre img {
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: 0.5s;
+}
+
+.cofre.aberto img {
+    filter: drop-shadow(0 0 22px rgba(220, 174, 75, 0.65));
+    transform: scale(1.04);
+}
+
+/* ÁREA DO JOGO */
+.jogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jogo label {
+    color: #c9a65c;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.instrucao {
+    color: #888;
+    font-size: 13px;
+    margin: 10px 0 15px;
+}
+
+/* CAMPO DE SENHA */
+input {
+    width: 180px;
+    padding: 14px;
+
+    background: #080808;
+    border: 1px solid #68532d;
+    border-radius: 8px;
+
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    outline: none;
+
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #d6b66c;
+    box-shadow: 0 0 12px rgba(214, 182, 108, 0.2);
+}
+
+input:disabled {
+    opacity: 0.5;
+}
+
+/* BOTÕES */
+button {
+    padding: 13px 25px;
+    margin-top: 15px;
+
+    background: linear-gradient(135deg, #d1ad60, #927039);
+    color: #111;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #f0d18a, #b18a43);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(190, 145, 55, 0.2);
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* MENSAGENS */
+#mensagem {
+    min-height: 24px;
+    margin-top: 20px;
+
+    color: #c9a65c;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#mensagem.sucesso {
+    color: #e6c879;
+    font-size: 19px;
+    text-shadow: 0 0 12px rgba(230, 200, 121, 0.5);
+    margin-top: 20px;
+}
+
+/* TENTATIVAS */
+.painel-tentativas {
+    width: 100%;
+    margin-top: 15px;
+}
+
+#tentativas {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+}
+
+.ponto {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.ponto.ativo {
+    background: #c9a65c;
+    box-shadow: 0 0 8px rgba(201, 166, 92, 0.4);
+}
+
+.ponto.perdido {
+    background: #4b2525;
+    border: 1px solid #8d4141;
+}
+
+/* ALERTA */
+#alerta {
+    min-height: 20px;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.alerta-final {
+    color: #ff6666;
+    font-weight: bold;
+    animation: piscar 0.8s infinite alternate;
+}
+
+@keyframes piscar {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.4;
+    }
+}
+
+/* BOTÃO REINICIAR */
+#reiniciarBtn {
+    background: transparent;
+    color: #c9a65c;
+    border: 1px solid #68532d;
+    margin-top: 20px;
+}
+
+#reiniciarBtn:hover {
+    background: #292116;
+}
+
+/* JANELA DE DERROTA */
+#overview {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    z-index: 10;
+}
+
+.janela {
+    width: 100%;
+    max-width: 400px;
+    padding: 35px;
+
+    background: #171717;
+    border: 1px solid #70572c;
+    border-radius: 15px;
+
+    text-align: center;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.8);
+}
+
+.iconeResultado {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.janela h2 {
+    color: #c9a65c;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.janela p {
+    color: #aaa;
+    line-height: 1.6;
+}
+
+/* RODAPÉ */
+footer {
+    margin-top: 30px;
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 500px) {
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 29px;
+    }
+
+    .cofre img {
+        width: 210px;
+    }
+
+    .indicadores {
+        gap: 6px;
+    }
+
+    .ponto {
+        width: 11px;
+        height: 11px;
+    }
+}

@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cofre Secreto</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <main class="container">
+
+        <header>
+            <p class="etiqueta">SISTEMA DE SEGURANÇA</p>
+            <h1>COFRE <span>SECRETO</span></h1>
+            <p class="subtitulo">
+                Descubra a combinação e desbloqueie o tesouro.
+            </p>
+        </header>
+
+        <div class="cofre">
+            <img
+                src="imagens/cofre-fechado.png"
+                id="imagemCofre"
+                alt="Cofre fechado"
+            >
+        </div>
+
+        <section class="jogo">
+
+            <label for="senha">DIGITE A SENHA SECRETA</label>
+
+            <p class="instrucao">
+                Escolha um número entre 1 e 150
+            </p>
+
+            <input
+                type="number"
+                id="senha"
+                min="1"
+                max="150"
+                step="1"
+                placeholder="000"
+            >
+
+            <button id="tentarBtn">
+                DESBLOQUEAR COFRE
+            </button>
+
+            <p id="mensagem">Aguardando combinação...</p>
+
+            <div class="painel-tentativas">
+                <p id="tentativas">Tentativas restantes: 9</p>
+
+                <div class="indicadores" id="indicadores">
+                    <span class="ponto ativo"></span>
+                    <span class="ponto ativo"></span>
+                    <span class="ponto ativo"></span>
+                    <span class="ponto ativo"></span>
+                    <span class="ponto ativo"></span>
+                    <span class="ponto ativo"></span>
+                    <span class="ponto ativo"></span>
+                    <span class="ponto ativo"></span>
+                    <span class="ponto ativo"></span>
+                </div>
+            </div>
+
+            <p id="alerta"></p>
+
+            <button id="reiniciarBtn">
+                ↻ REINICIAR JOGO
+            </button>
+
+        </section>
+
+        <footer>
+            <p>ACESSO RESTRITO • SISTEMA DE PROTEÇÃO</p>
+        </footer>
+
+    </main>
+
+    <!-- JANELA DE DERROTA -->
+    <div id="overview">
+        <div class="janela">
+            <div class="iconeResultado" id="iconeResultado">🔒</div>
+
+            <h2 id="tituloResultado">ACESSO NEGADO!</h2>
+
+            <p id="resultado"></p>
+
+            <button id="jogarNovamente">
+                JOGAR NOVAMENTE
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>
